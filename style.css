@@ -1,0 +1,93 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+}
+
+header{
+position:absolute;
+width:100%;
+padding:25px 8%;
+z-index:100;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:2rem;
+font-weight:bold;
+letter-spacing:3px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+.hero{
+height:100vh;
+background:url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc")
+center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+backdrop-filter:blur(2px);
+}
+
+.hero-content{
+position:relative;
+text-align:center;
+z-index:2;
+}
+
+.hero-content h1{
+font-size:5rem;
+max-width:900px;
+margin:auto;
+}
+
+.hero-content p{
+margin-top:20px;
+font-size:1.2rem;
+color:#ddd;
+}
+
+.btn{
+display:inline-block;
+margin-top:35px;
+padding:15px 35px;
+border:2px solid white;
+color:white;
+text-decoration:none;
+transition:.4s;
+}
+
+.btn:hover{
+background:white;
+color:black;
+}
