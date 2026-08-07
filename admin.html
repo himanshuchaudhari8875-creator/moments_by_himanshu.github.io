@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Selected Photos</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body{
+background:#000;
+color:white;
+font-family:Poppins,sans-serif;
+padding:30px;
+}
+
+h1{
+text-align:center;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.card{
+background:#111;
+padding:15px;
+border-radius:15px;
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.folder{
+color:#ffb703;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>❤️ Client Selected Photos</h1>
+<div id="stats"></div>
+<button onclick="exportCSV()">
+📥 Download CSV
+</button>
+
+<div style="text-align:center; margin:20px;">
+
+<select id="folderFilter" onchange="filterPhotos()">
+
+    <option value="all">All Clients</option>
+    <option value="cafe">Cafe</option>
+    <option value="weeding">Wedding</option>
+    <option value="vastu">Vastu</option>
+
+</select>
+
+</div>
+
+
+<div id="selectedPhotos" class="grid"></div>
+
+<script src="admin.js"></script>
+
+<a
+href="https://wa.me/91YOURNUMBER"
+target="_blank"
+class="whatsapp-btn">
+
+💬
+
+</a>
+
+<h2 style="text-align:center;margin-top:50px;">
+📅 Client Bookings
+</h2>
+
+<div id="bookingList"></div>
+
+</body>
+</html>

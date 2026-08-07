@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Client Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+}
+
+.header{
+    text-align:center;
+    padding:40px 20px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.header h1{
+    font-size:42px;
+}
+
+.gallery{
+    padding:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.gallery-card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.gallery-card:hover{
+    transform:translateY(-5px);
+}
+
+.gallery-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.btn{
+    flex:1;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.favorite{
+    background:#ff4d6d;
+    color:white;
+}
+
+.download{
+    background:#ffb703;
+    color:black;
+}
+
+.selected-title{
+    text-align:center;
+    margin-top:30px;
+    font-size:28px;
+}
+.whatsapp-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+text-decoration:none;
+z-index:9999;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+} 
+.instagram-btn{
+position:fixed;
+bottom:95px;
+right:20px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:#E1306C;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+text-decoration:none;
+z-index:99999;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div id="statsCard" style="
+max-width:800px;
+margin:20px auto;
+padding:20px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border-radius:20px;
+text-align:center;
+">
+
+<h2 id="clientTitle">Client Gallery</h2>
+
+<p>
+🖼 Total Photos:
+<span id="totalPhotos">0</span>
+</p>
+
+<p>
+❤️ Selected:
+<span id="selectedCount">0</span>
+</p>
+
+<p>
+📸 Photographer:
+Himanshu Chaudhari
+</p>
+
+</div>
+
+    <h1 id="clientTitle">Client Gallery</h1>
+    <p>Select Your Favorite Photos ❤️</p>
+</div>
+
+<h2 class="selected-title">
+    ❤️ Selected Photos
+    (<span id="selectedCount">0</span>)
+</h2>
+
+<div style="text-align:center;margin:20px;">
+
+<button
+onclick="showSelectedOnly()"
+class="btn favorite">
+
+❤️ View My Selected Photos
+
+</button>
+
+<button
+onclick="loadGallery()"
+class="btn download">
+
+🖼 View All Photos
+
+</button>
+
+</div>
+
+<div id="selectedGallery" class="gallery"></div>
+
+<div id="gallery" class="gallery"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="gallery.js"></script>
+
+<div id="lightbox" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+z-index:9999;
+justify-content:center;
+align-items:center;
+">
+
+<img
+id="lightboxImg"
+style="
+max-width:95%;
+max-height:95%;
+border-radius:15px;
+">
+
+<span
+onclick="closeLightbox()"
+style="
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+cursor:pointer;
+color:white;
+">
+✖
+</span>
+
+</div>
+
+<a
+href="https://instagram.com/moments_by_himanshu"
+target="_blank"
+class="instagram-btn">
+
+📸
+
+</a>
+
+<a
+href="https://wa.me/918080757074"
+target="_blank"
+class="whatsapp-btn">
+💬
+</a>
+
+</body>
+</html>
